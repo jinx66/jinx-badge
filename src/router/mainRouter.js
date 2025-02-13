@@ -1,9 +1,9 @@
 const mainRouter = [
-  {
-    path: "/",
-    name: "Index",
-    component: () => import("@/views/index.vue"),
-  },
+  // {
+  //   path: "/",
+  //   name: "Index",
+  //   component: () => import("@/views/index.vue"),
+  // },
   {
     path: "/badges",
     name: "Badges",
