@@ -1,9 +1,5 @@
 const mainRouter = [
-  // {
-  //   path: "/",
-  //   name: "Index",
-  //   component: () => import("@/views/index.vue"),
-  // },
+
   {
     path: "/badges",
     name: "Badges",
@@ -14,10 +10,10 @@ const mainRouter = [
     name: "Index",
     component: () => import("@/views/index.vue"),
   },
-  // {
-  //   path: "*",
-  //   redirect: "/index",
-  // },
+  {
+    path: "*",
+    redirect: "/index",
+  },
 ];
 
 export default mainRouter;
