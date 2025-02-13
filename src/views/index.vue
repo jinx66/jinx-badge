@@ -22,7 +22,12 @@ export default {
     }
   },
   mounted() {
-    const { link, leftText, rightText, leftColor, rightColor,logo,logoColor } = this.$route.query;
+    const { leftSize,rightSize,borderRadius,logoWidth,logoHeight,link, leftText, rightText, leftColor, rightColor,logo,logoColor } = this.$route.query;
+    this.leftSize = leftSize
+    this.rightSize = rightSize
+    this.borderRadius = borderRadius
+    this.logoWidth = logoWidth
+    this.logoHeight = logoHeight
     this.link = link;
     // this.link = link || "https://github.com/jinx66";
     this.logo = logo

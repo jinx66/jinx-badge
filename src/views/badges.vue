@@ -1,11 +1,11 @@
 <template>
-  <div class="badge" @click="openLink" :class="[link ? 'cursor' : '']">
-    <div class="badge-left">
-      <div v-if="logo" class="logo-container" ref="logoContainer"></div>
+  <div class="badge" :style="containerStyle" @click="openLink" :class="[link ? 'cursor' : '']">
+    <div class="badge-left" :style="leftStyle">
+      <div v-if="logo" class="logo-container" :style="logoStyle" ref="logoContainer"></div>
       <div v-if="leftText">{{ leftText }}</div>
     </div>
-    <div v-if="rightText" class="badge-right">
-      <div>{{ rightText }}</div>
+    <div v-if="rightText" class="badge-right" :style="rightStyle">
+      <div class="right-text">{{ rightText }}</div>
     </div>
   </div>
 </template>
@@ -14,6 +14,18 @@
 export default {
   name: 'BadgeComponent',
   props: {
+    borderRadius: {
+      type: String,
+      default: '6px',  // 默认值
+    },
+    logoWidth: {
+      type: String,
+      default: '20px',  // 默认值
+    },
+    logoHeight: {
+      type: String,
+      default: '20px',  // 默认值
+    },
     link: {
       type: String,
       default: '',
@@ -30,6 +42,14 @@ export default {
       type: String,
       default: 'Jinx',
     },
+    leftSize: {
+      type: String,
+      default: '14px',
+    },
+    rightSize: {
+      type: String,
+      default: '14px',
+    },
     leftColor: {
       type: String,
       default: '#555',
@@ -42,47 +62,45 @@ export default {
       type: String,
       default: '#4c1',
     },
-    svgContent: {
-      type: String,
-      default: '',
+  },
+  computed: {
+    containerStyle() {
+      return {
+        borderRadius: this.borderRadius,
+      };
+    },
+    leftStyle() {
+      return {
+        fontSize: this.leftSize,
+      };
+    },
+    rightStyle() {
+      return {
+        fontSize: this.rightSize,
+      };
+    },
+    logoStyle() {
+      return {
+        width: this.logoWidth,
+        height: this.logoHeight,
+      };
     },
   },
   data(){
     return {
-      // link: '',
-      // logo: '',
-      // leftText: '',
-      // rightText: '',
-      // leftColor: '',
-      // rightColor: '',
-      // logoColor: '',
-      // svgContent: ''         // 存储 SVG 内容
     }
   },
   mounted() {
-    // const { link, leftText, rightText, leftColor, rightColor,logo,logoColor } = this.$route.query;
-    // this.link = link;
-    // // this.link = link || "https://github.com/jinx66";
-    // this.logo = logo
-    // // this.logo = logo || 'vuedotjs'
-    // this.logoColor = logoColor || '#000'
-    // this.leftText = leftText || "creator";
-    // this.rightText = rightText || 'Jinx';
-    // this.leftColor = leftColor || "#555";
-    // this.rightColor = rightColor || "#4c1";
     this.loadSvg()
-    // link=https://github.com/jinx66&logo=react&logoColor=yellow&leftText=csgo&rightText=2025&leftColor=red&rightColor=blue
-    // link=https://github.com/jinx66&logoColor=red&leftText=csgo&rightText=2025
-    // link=https://github.com/jinx66&leftText=csgo&rightText=2025
 
   },
   methods:{
     openLink() {
       if(!this.link) {
         return false
-      } 
+      }
       console.log(this.link);
-      
+
       window.open(this.link, '_blank');
     },
     loadSvg() {
@@ -92,13 +110,13 @@ export default {
           // 使用 DOMParser 解析 SVG 字符串为 DOM
           const parser = new DOMParser();
           const svgDoc = parser.parseFromString(svg, 'image/svg+xml');
-          
+
           // 获取 SVG 元素
           const svgElement = svgDoc.querySelector('svg');
-          
+
           // 设置 fill 属性为动态颜色
           svgElement.setAttribute('fill', this.logoColor);
-          
+
           // 将修改后的 SVG 插入到页面中
           this.$refs.logoContainer.innerHTML = svgElement.outerHTML;
         })
@@ -109,14 +127,12 @@ export default {
 </script>
 
 <style scoped>
-.logo-container{
-  width: 10px;
-  height: 10px;
+.logo-container {
   margin-right: 5px;
 }
 .badge {
   display: inline-flex;
-  border-radius: 3px;
+  border-radius: 6px;
   overflow: hidden;
   font-family: Georgia, serif;
   font-size: 12px;
@@ -141,5 +157,11 @@ export default {
 }
 .cursor {
   cursor: pointer;
+}
+.right-text {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 </style>
