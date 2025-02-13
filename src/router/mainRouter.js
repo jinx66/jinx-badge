@@ -9,9 +9,9 @@ const mainRouter = [
     component: () => import("@/views/badges.vue"),
   },
   {
-    path: "/test",
-    name: "Test",
-    component: () => import("@/views/test.vue"),
+    path: "/index",
+    name: "Index",
+    component: () => import("@/views/index.vue"),
   },
 ];
 

@@ -4,7 +4,7 @@
       <div v-if="logo" class="logo-container" ref="logoContainer"></div>
       <div v-if="leftText">{{ leftText }}</div>
     </div>
-    <div v-if="rightText" class="'badge-right'">
+    <div v-if="rightText" class="badge-right">
       <di>{{ rightText }}</di>
     </div>
   </div>
