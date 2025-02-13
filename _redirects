@@ -1,1 +1,4 @@
-/*    /index.html   200
+/* Any URL */
+/* 301 告诉 Netlify 永久重定向到 index.html */
+/* No trailing slash after the file name */
+301 /index.html
