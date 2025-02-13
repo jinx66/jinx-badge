@@ -1,8 +1,6 @@
 {
   "name": "jinx-badges",
   "version": "0.1.3",
-  "main": "src/index.js",
-  "types": "src/index.d.ts",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
