@@ -1,10 +1,12 @@
 {
-  "name": "my-badges",
-  "version": "0.1.0",
-  "private": true,
+  "name": "jinx-badges",
+  "version": "0.1.3",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --target lib --name jinx-badges src/index.js",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

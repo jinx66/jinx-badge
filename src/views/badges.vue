@@ -1,11 +1,11 @@
 <template>
-  <div class="badge">
+  <div class="badge" @click="openLink" :class="[link ? 'cursor' : '']">
     <div class="badge-left">
       <div v-if="logo" class="logo-container" ref="logoContainer"></div>
-      <div>{{ leftText }}</div>
+      <div v-if="leftText">{{ leftText }}</div>
     </div>
-    <div :class="['badge-right', link ? 'cursor' : '']" @click="openLink">
-      <div>{{ rightText }}</div>
+    <div v-if="rightText" class="'badge-right'">
+      <di>{{ rightText }}</di>
     </div>
   </div>
 </template>
@@ -14,30 +14,62 @@
 export default {
   name: 'BadgeComponent',
   props: {
+    link: {
+      type: String,
+      default: '',
+    },
+    logo: {
+      type: String,
+      default: '',
+    },
+    leftText: {
+      type: String,
+      default: 'creator',
+    },
+    rightText: {
+      type: String,
+      default: 'Jinx',
+    },
+    leftColor: {
+      type: String,
+      default: '#555',
+    },
+    rightColor: {
+      type: String,
+      default: '#4c1',
+    },
+    logoColor: {
+      type: String,
+      default: '',
+    },
+    svgContent: {
+      type: String,
+      default: '',
+    },
   },
   data(){
     return {
-      link: '',
-      logo: '',
-      leftText: '',
-      rightText: '',
-      leftColor: '',
-      rightColor: '',
-      logoColor: '',
-      svgContent: ''         // 存储 SVG 内容
+      // link: '',
+      // logo: '',
+      // leftText: '',
+      // rightText: '',
+      // leftColor: '',
+      // rightColor: '',
+      // logoColor: '',
+      // svgContent: ''         // 存储 SVG 内容
     }
   },
   mounted() {
-    const { link, leftText, rightText, leftColor, rightColor,logo,logoColor } = this.$route.query;
-    this.link = link;
-    // this.link = link || "https://github.com/jinx66";
-    this.logo = logo
-    // this.logo = logo || 'vuedotjs'
-    this.logoColor = logoColor || '#000'
-    this.leftText = leftText || "creator";
-    this.rightText = rightText || 'Jinx';
-    this.leftColor = leftColor || "#555";
-    this.rightColor = rightColor || "#4c1";
+    // const { link, leftText, rightText, leftColor, rightColor,logo,logoColor } = this.$route.query;
+    // this.link = link;
+    // // this.link = link || "https://github.com/jinx66";
+    // this.logo = logo
+    // // this.logo = logo || 'vuedotjs'
+    // this.logoColor = logoColor || '#000'
+    // this.leftText = leftText || "creator";
+    // this.rightText = rightText || 'Jinx';
+    // this.leftColor = leftColor || "#555";
+    // this.rightColor = rightColor || "#4c1";
     this.loadSvg()
     // link=https://github.com/jinx66&logo=react&logoColor=yellow&leftText=csgo&rightText=2025&leftColor=red&rightColor=blue
     // link=https://github.com/jinx66&logoColor=red&leftText=csgo&rightText=2025
@@ -49,7 +81,9 @@ export default {
       if(!this.link) {
         return false
       } 
-      window.open(this.link)
+      console.log(this.link);
+      
+      window.open(this.link, '_blank');
     },
     loadSvg() {
       fetch(`https://simpleicons.org/icons/${this.logo}.svg`)
