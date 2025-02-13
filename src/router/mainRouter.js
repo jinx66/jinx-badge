@@ -9,10 +9,10 @@ const mainRouter = [
     name: "Index",
     component: () => import("@/views/index.vue"),
   },
-  // {
-  //   path: "*",
-  //   redirect: "/badges",
-  // },
+  {
+    path: "*",
+    redirect: "/index",
+  },
 ];
 
 export default mainRouter;
