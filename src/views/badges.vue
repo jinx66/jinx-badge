@@ -5,7 +5,7 @@
       <div v-if="leftText">{{ leftText }}</div>
     </div>
     <div v-if="rightText" class="badge-right">
-      <di>{{ rightText }}</di>
+      <div>{{ rightText }}</div>
     </div>
   </div>
 </template>
@@ -20,7 +20,7 @@ export default {
     },
     logo: {
       type: String,
-      default: '',
+      default: 'vuedotjs',
     },
     leftText: {
       type: String,
@@ -40,7 +40,7 @@ export default {
     },
     logoColor: {
       type: String,
-      default: '',
+      default: '#4c1',
     },
     svgContent: {
       type: String,

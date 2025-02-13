@@ -27,19 +27,19 @@ export default {
     // this.link = link || "https://github.com/jinx66";
     this.logo = logo
     // this.logo = logo || 'vuedotjs'
-    this.logoColor = logoColor || '#000'
-    this.leftText = leftText || "creator";
-    this.rightText = rightText || 'Jinx';
-    this.leftColor = leftColor || "#555";
-    this.rightColor = rightColor || "#4c1";
-    this.loadSvg()
+    this.logoColor = logoColor;
+    this.leftText = leftText;
+    this.rightText = rightText;
+    this.leftColor = leftColor;
+    this.rightColor = rightColor;
+    // this.loadSvg()
     // link=https://github.com/jinx66&logo=react&logoColor=yellow&leftText=csgo&rightText=2025&leftColor=red&rightColor=blue
     // link=https://github.com/jinx66&logoColor=red&leftText=csgo&rightText=2025
     // link=https://github.com/jinx66&leftText=csgo&rightText=2025
 
   },
-  methods: {
-
+  methods:{
+ 
   }
 };
 </script>
