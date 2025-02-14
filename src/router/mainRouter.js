@@ -20,10 +20,10 @@ const mainRouter = [
     name: "Svg",
     component: () => import("@/views/svg.vue"),
   },
-  // {
-  //   path: "*",
-  //   redirect: "/index",
-  // },
+  {
+    path: "*",
+    redirect: "/index",
+  },
 ];
 
 export default mainRouter;
