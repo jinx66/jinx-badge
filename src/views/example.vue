@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'IndexComponent',
+  name: 'ExampleComponent',
  
   components: {
     Badges: () => import('./badges.vue'),

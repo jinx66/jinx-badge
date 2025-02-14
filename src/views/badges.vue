@@ -47,7 +47,7 @@
           </el-form-item>
           <div style="margin-bottom: 10px;">
             <span style="color: brown;font-size: 12px;">(参考上面配置，在网址后面拼接你所需要的参数名后点击跳转，例如
-              https://badges.xianjianheng.com/index?logo=github&leftText=github&rightText=&logoColor=%23fff&leftColor=black)</span>
+              https://badges.xianjianheng.com/example?logo=github&leftText=github&rightText=&logoColor=%23fff&leftColor=black)</span>
           </div>
           <el-form-item>
             <el-button type="primary" @click="go">跳转至当前地址</el-button>
