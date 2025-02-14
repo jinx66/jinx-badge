@@ -1,4 +1,4 @@
-import JinxBadges from './views/badges.vue';
+import JinxBadges from './views/default.vue';
 
 JinxBadges.install = function(Vue) {
   Vue.component(JinxBadges.name, JinxBadges);

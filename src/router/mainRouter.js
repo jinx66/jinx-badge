@@ -11,6 +11,11 @@ const mainRouter = [
     component: () => import("@/views/index.vue"),
   },
   {
+    path: "/default",
+    name: "Default",
+    component: () => import("@/views/default.vue"),
+  },
+  {
     path: "/test",
     name: "Test",
     component: () => import("@/views/test.vue"),
@@ -21,8 +26,13 @@ const mainRouter = [
     component: () => import("@/views/svg.vue"),
   },
   {
+    path: "/404",
+    name: "notfound",
+    component: () => import("@/views/notfound.vue"),
+  },
+  {
     path: "*",
-    redirect: "/index",
+    redirect: "/404",
   },
 ];
 
