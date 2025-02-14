@@ -4,7 +4,6 @@
       class="badge"
       id="myDiv"
       :style="containerStyle"
-      @click="openLink"
       :class="[link ? 'cursor' : '']"
     >
       <div class="badge-left" :style="leftStyle">
@@ -62,7 +61,7 @@
 </template>
 
 <script>
-import domtoimage from "dom-to-image";
+import * as domtoimage from "dom-to-image";  // 正确的导入路径
 
 export default {
   name: "BadgeComponent",
@@ -266,15 +265,6 @@ export default {
       } else {
         alert("尚未生成 SVG");
       }
-    },
-    openLink() {
-      this.convertToSVG();
-      if (!this.link) {
-        return false;
-      }
-      console.log(this.link);
-
-      window.open(this.link, "_blank");
     },
     loadSvg() {
       fetch(`https://simpleicons.org/icons/${this.logo}.svg`)
