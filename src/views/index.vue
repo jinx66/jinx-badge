@@ -29,18 +29,30 @@ export default {
     this.logoWidth = logoWidth
     this.logoHeight = logoHeight
     this.link = link;
-    // this.link = link || "https://github.com/jinx66";
+ 
     this.logo = logo
-    // this.logo = logo || 'vuedotjs'
+ 
     this.logoColor = logoColor;
     this.leftText = leftText;
     this.rightText = rightText;
     this.leftColor = leftColor;
     this.rightColor = rightColor;
-    // this.loadSvg()
-    // link=https://github.com/jinx66&logo=react&logoColor=yellow&leftText=csgo&rightText=2025&leftColor=red&rightColor=blue
-    // link=https://github.com/jinx66&logoColor=red&leftText=csgo&rightText=2025
-    // link=https://github.com/jinx66&leftText=csgo&rightText=2025
+    console.log(this.rightColor);
+    
+    // this.leftSize = decodeURIComponent(leftSize);
+    // this.rightSize = decodeURIComponent(rightSize);
+    // this.borderRadius = decodeURIComponent(borderRadius);
+    // this.logoWidth = decodeURIComponent(logoWidth);
+    // this.logoHeight = decodeURIComponent(logoHeight);
+    // this.link = decodeURIComponent(link);
+    // // this.link = link || "https://github.com/jinx66";
+    // this.logo = decodeURIComponent(logo);
+    // // this.logo = logo || 'vuedotjs'
+    // this.logoColor = decodeURIComponent(logoColor);
+    // this.leftText = decodeURIComponent(leftText);
+    // this.rightText = decodeURIComponent(rightText);
+    // this.leftColor = decodeURIComponent(leftColor);
+    // this.rightColor = decodeURIComponent(rightColor);
 
   },
   methods:{
