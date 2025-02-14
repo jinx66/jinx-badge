@@ -16,9 +16,14 @@ const mainRouter = [
     component: () => import("@/views/test.vue"),
   },
   {
-    path: "*",
-    redirect: "/index",
+    path: "/svg",
+    name: "Svg",
+    component: () => import("@/views/svg.vue"),
   },
+  // {
+  //   path: "*",
+  //   redirect: "/index",
+  // },
 ];
 
 export default mainRouter;

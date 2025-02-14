@@ -1,12 +1,12 @@
 <template>
   <div>
-    <JinxBadges class="badges" />
+    <!-- <JinxBadges class="badges" id="myDiv" />
     <JinxBadges class="badges" link="https://xianjianheng.com" logoWidth="40px" logoHeight="40px" logo="github" logoColor="#fff" leftText="" rightText="https://www.github/jinx66" leftColor="#000"  rightColor="#0c7ebf"/>
     <JinxBadges class="badges" link="https://xianjianheng.com" logo="" leftText="coverage" rightText="80%" leftColor="#565656" rightColor="#0c7ebf" />
     <JinxBadges class="badges" link="https://xianjianheng.com" logo="silverairways" leftText="silverairways" leftColor="#D0006F" logoColor="#fff" rightText="1.2.3" rightColor="#0d7fc0"/>
     <JinxBadges class="badges" link="https://xianjianheng.com" logo="reactquery" leftText="reactquery" leftColor="#FF4154" logoColor="#fff" rightText="1.2.3" rightColor="#0d7fc0"/>
     <JinxBadges class="badges" link="https://xianjianheng.com" logo="stackoverflow" leftText="stackoverflow" leftColor="#F58025" logoColor="#fff" rightText="1.2.3" rightColor="#0d7fc0"/>
-    <JinxBadges class="badges" link="https://xianjianheng.com" logo="amazonsqs" leftText="amazonsqs" leftColor="#FF4F8B" logoColor="#fff" rightText="1.2.3" rightColor="#0d7fc0"/>
+    <JinxBadges class="badges" link="https://xianjianheng.com" logo="amazonsqs" leftText="amazonsqs" leftColor="#FF4F8B" logoColor="#fff" rightText="1.2.3" rightColor="#0d7fc0"/> -->
     <JinxBadges class="badges" link="https://xianjianheng.com" logo="indiansuperleague" leftText="indiansuperleague" leftColor="#ED2F21" logoColor="#fff" rightText="1.2.3" rightColor="#0d7fc0"/>
   </div>
 </template>

@@ -1,7 +1,18 @@
 <template>
-  <div class="badge" :style="containerStyle" @click="openLink" :class="[link ? 'cursor' : '']">
+  <div
+    class="badge"
+    id="myDiv"
+    :style="containerStyle"
+    @click="openLink"
+    :class="[link ? 'cursor' : '']"
+  >
     <div class="badge-left" :style="leftStyle">
-      <div v-if="logo" class="logo-container" :style="logoStyle" ref="logoContainer"></div>
+      <div
+        v-if="logo"
+        class="logo-container"
+        :style="logoStyle"
+        ref="logoContainer"
+      ></div>
       <div v-if="leftText">{{ leftText }}</div>
     </div>
     <div v-if="rightText" class="badge-right" :style="rightStyle">
@@ -11,56 +22,58 @@
 </template>
 
 <script>
+import domtoimage from "dom-to-image";
+
 export default {
-  name: 'BadgeComponent',
+  name: "BadgeComponent",
   props: {
     borderRadius: {
       type: String,
-      default: '6px',  // 默认值
+      default: "6px", // 默认值
     },
     logoWidth: {
       type: String,
-      default: '20px',  // 默认值
+      default: "20px", // 默认值
     },
     logoHeight: {
       type: String,
-      default: '20px',  // 默认值
+      default: "20px", // 默认值
     },
     link: {
       type: String,
-      default: '',
+      default: "",
     },
     logo: {
       type: String,
-      default: 'vuedotjs',
+      default: "vuedotjs",
     },
     leftText: {
       type: String,
-      default: 'creator',
+      default: "creator",
     },
     rightText: {
       type: String,
-      default: 'Jinx',
+      default: "Jinx",
     },
     leftSize: {
       type: String,
-      default: '14px',
+      default: "14px",
     },
     rightSize: {
       type: String,
-      default: '14px',
+      default: "14px",
     },
     leftColor: {
       type: String,
-      default: '#555',
+      default: "#555",
     },
     rightColor: {
       type: String,
-      default: '#4c1',
+      default: "#4c1",
     },
     logoColor: {
       type: String,
-      default: '#4c1',
+      default: "#4c1",
     },
   },
   computed: {
@@ -86,43 +99,62 @@ export default {
       };
     },
   },
-  data(){
-    return {
-    }
+  data() {
+    return {};
   },
   mounted() {
-    this.loadSvg()
-
+    this.loadSvg();
+    setTimeout(()=>{
+      this.convertToSVG()
+    },500)
   },
-  methods:{
+  methods: {
+    convertToSVG() {
+      var node = document.getElementById("myDiv");
+
+      domtoimage
+        .toSvg(node)
+        .then(function (dataUrl) {
+          console.log('SVG 转换完成:', dataUrl);
+    // 去掉 data:image/svg+xml;charset=utf-8, 前缀
+    const svgContent = dataUrl.replace(/^data:image\/svg\+xml;charset=utf-8,/, '');
+    
+    // 清空页面内容，并插入 SVG
+    document.body.innerHTML = svgContent;
+  })
+        .catch(function (error) {
+          console.error("Error while converting to SVG:", error);
+        });
+    },
     openLink() {
-      if(!this.link) {
-        return false
+      this.convertToSVG();
+      if (!this.link) {
+        return false;
       }
       console.log(this.link);
 
-      window.open(this.link, '_blank');
+      window.open(this.link, "_blank");
     },
     loadSvg() {
       fetch(`https://simpleicons.org/icons/${this.logo}.svg`)
-        .then(response => response.text())
-        .then(svg => {
+        .then((response) => response.text())
+        .then((svg) => {
           // 使用 DOMParser 解析 SVG 字符串为 DOM
           const parser = new DOMParser();
-          const svgDoc = parser.parseFromString(svg, 'image/svg+xml');
+          const svgDoc = parser.parseFromString(svg, "image/svg+xml");
 
           // 获取 SVG 元素
-          const svgElement = svgDoc.querySelector('svg');
+          const svgElement = svgDoc.querySelector("svg");
 
           // 设置 fill 属性为动态颜色
-          svgElement.setAttribute('fill', this.logoColor);
+          svgElement.setAttribute("fill", this.logoColor);
 
           // 将修改后的 SVG 插入到页面中
           this.$refs.logoContainer.innerHTML = svgElement.outerHTML;
         })
-        .catch(error => console.error('Error loading SVG:', error));  // 捕获错误
+        .catch((error) => console.error("Error loading SVG:", error)); // 捕获错误
     },
-  }
+  },
 };
 </script>
 
