@@ -1,6 +1,6 @@
 {
   "name": "jinx-badges",
-  "version": "0.2.4",
+  "version": "0.2.6",
   "main": "src/index.js",
   "private": false,
   "scripts": {

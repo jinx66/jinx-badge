@@ -2,6 +2,7 @@
   <div>
     <div
       class="badge"
+      @click="openlink()"
       id="myDiv"
       :style="containerStyle"
       :class="[link ? 'cursor' : '']"
@@ -155,6 +156,11 @@ export default {
     this.form.url = JSON.parse(JSON.stringify(window.location.href));
   },
   methods: {
+    openlink() {
+      if(this.validateUrl(this.link, 'link')) {
+        window.open(this.link,'_blank')
+      }
+    },
     go() {
       let a = JSON.parse(JSON.stringify(this.form.url))
       let url = a.replace(/#/g, "%23")
@@ -164,7 +170,7 @@ export default {
       // window.location.href = encodeURIComponent(this.form.url); // 重定向到新的页面
       window.location.href = url; // 重定向到新的页面
     },
-    validateUrl(url) {
+    validateUrl(url, type = 'url') {
       // 解码URL
       const decodedUrl = decodeURIComponent(url);
 
@@ -173,7 +179,7 @@ export default {
       if (!urlPattern.test(decodedUrl)) {
         this.$message({
           showClose: true,
-          message: "url格式有误",
+          message: `${type}格式有误`,
           type: "warning",
         });
         return false; // 如果格式不正确，返回false
@@ -183,7 +189,7 @@ export default {
       if (decodedUrl.length > 300) {
         this.$message({
           showClose: true,
-          message: "url太长",
+          message: `${type}太长`,
           type: "warning",
         });
         return false; // 如果长度超过2000字符，返回false
@@ -197,7 +203,6 @@ export default {
       domtoimage
         .toSvg(node)
         .then((dataUrl) => {
-          console.log("SVG 转换完成:", dataUrl);
           this.svgContent = dataUrl.replace(
             /^data:image\/svg\+xml;charset=utf-8,/,
             ""
